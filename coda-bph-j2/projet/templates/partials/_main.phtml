@@ -1,0 +1,52 @@
+<main>
+    <h2>
+        <?php echo $pageTitle ?>
+    </h2>
+    <p>
+        <?php echo $pageContent ?>
+    </p>
+
+    <section class="dilemme">
+        <img src="assets/images/train.png" alt="dilemme train">
+            <form method="get" action="index.php" id="choix">
+                <fieldset>
+                    <label for="choice">
+                        Votre choix
+                    </label>
+                    <select name="choix" id="choice">
+                        <option value="Solo ult">Solo ult</option>
+                        <option value="Mystère">Mystère</option>
+                        <option value="Ace">Ace</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <button type="submit">Tchoutchou</button>
+                </fieldset>
+            </form>
+    <!-- // ========== Aide de l'IA Claude pour ce message si l'utilisateur tente de faire des trucs non désiré dans l'URL
+     la ligne avec le "??" signifie ""Affiche $choixTrouve SI elle existe et n'est pas null, SINON affiche "Choix non reconnu"" ======== -->
+            <div class="resultat">
+                <?php echo $choixTrouve ?? "Choix non reconnu"; ?> 
+            </div>
+
+            <?php if ($choix === "Solo ult") { ?>
+
+            <form method="get" action="index.php" id="choix">
+                <fieldset>
+                    <label for="choice">
+                        Votre choix (je te force pas)
+                    </label>
+                    <select name="choix" id="choice">
+                        <option value="Mystère">Mystère</option>
+                        <option value="Ace">Ace</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <button type="submit">Tchoutchou again</button>
+                </fieldset>
+                <?php } else { ?>
+                    <p>Rien à signaler en plus, tu peux partir c: <p>
+                <?php } ?>
+            </form>
+    </section>
+</main>
