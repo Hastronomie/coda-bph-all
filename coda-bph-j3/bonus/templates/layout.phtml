@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Exercices Formulaires</title>
+        <link rel="stylesheet" href="assets/styles/style.css">
+    </head>
+    <body>
+        <?php require "templates/partials/_header.phtml"; ?>
+        <?php require "templates/partials/_$pageDemandee.phtml"; ?>
+        <?php require "templates/partials/_footer.phtml"; ?>
+
+        <?php 
+        $_GET["route"] =$template;
+        if ($templates === "about") 
+        require "templates/partials/_about.phtml"; ?>
+
+        <?php 
+        if ($templates === "contact") 
+        require "templates/partials/_contact.phtml"; ?>
+    </body>
+</html>
