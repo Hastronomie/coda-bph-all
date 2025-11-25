@@ -13,7 +13,7 @@ $db = new PDO(
     $password
 );
 
-$query = $db->prepare('UPDATE users SET job = 1 WHERE users.id = 7;');
+$query = $db->prepare('DELETE FROM users WHERE users.id = 6;');
 $parameters = [
     // 'id' => $_GET['id']
 ];
