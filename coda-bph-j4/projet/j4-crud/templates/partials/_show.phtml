@@ -1,0 +1,24 @@
+<main class="container py-5">
+    <?php require "controllers/get-user.php" ?>
+    <a href="index.php?route=list">Retour à la liste</a>
+    <h1 class="my-5"><strong>Données utilisateur de <?= $user['username'] ?> </strong></h1>
+    <?php if (isset($user) && is_array($user)): { ?>
+        <div class="card p-4">
+            <h2>Id</h2>
+            <p><?= $user['id'] ?></p>
+            <h2>Nom</h2>
+            <p><?= $user['username'] ?></p>
+            <h2>Email</h2>
+            <p><?= $user['email'] ?></p>
+            <h2>Job</h2>
+            <p><?php if ($user['job'] == 1) echo 'Journaliste'; ?>
+                <?php if ($user['job'] == 2) echo 'Conservateur de musée'; ?>
+                <?php if ($user['job'] == 3) echo 'Riche'; ?>
+                <?php if ($user['job'] == 4) echo 'Vétéran'; ?>
+                <?php if ($user['job'] == 5) echo 'Lycéen'; ?></p>
+        </div>
+    <?php } else: { ?>
+    <p>Erreur : données utilisateur non disponibles.</p>
+<?php  } endif; ?>
+    </form>
+</main>
