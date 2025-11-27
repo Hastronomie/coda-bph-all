@@ -36,7 +36,6 @@ body > header > h1 {
 
 body > header nav {
     display: grid;
-    top: -10px;
 }
 
 body > header > nav > ul {
