@@ -41,3 +41,4 @@ class User
         return "je suis {$this->id}, {$this->username}, et j'ai {$this->password}";
     }
 }
+?>
