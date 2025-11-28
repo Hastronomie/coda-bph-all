@@ -4,8 +4,7 @@ class Mage extends Character
 {
     public function __construct(private int $mana, string $name, int $life)
     {
-        $this->name = $name;
-        $this->life = $life;
+        parent::__construct($name, $life);
     }
 
     public function getMana() : int

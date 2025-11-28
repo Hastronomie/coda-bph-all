@@ -4,8 +4,7 @@ class Warrior extends Character
 {
     public function __construct(private int $energy, string $name, int $life)
     {
-        $this->name = $name;
-        $this->life = $life;
+        parent::__construct($name, $life);
     }
 
     public function getEnergy() : int

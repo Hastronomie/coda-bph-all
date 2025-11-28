@@ -1,10 +1,8 @@
 <?php
 class Character
 {
-    public int $life;
-    public string $name;
 
-    public function __construct()
+    public function __construct(protected string $name, protected int $life )
     {
 
     }
