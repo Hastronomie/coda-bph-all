@@ -34,7 +34,6 @@ abstract class AbstractUser
         $this->password = $password;
     }
 
-
     public function getRole()
     {
         return $this->role;

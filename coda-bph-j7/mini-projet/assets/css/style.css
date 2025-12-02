@@ -1,0 +1,139 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    color: white;
+    overflow: hidden;
+}
+
+body
+{
+    margin-top: 200px;
+    background: linear-gradient(225deg, #7400b8, #6930c3, #5e60ce, #5390d9, #4ea8de, #48bfe3, #56cfe1);
+}
+
+header
+{
+    position:fixed;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    top:0;
+    left:0;
+    padding: 20px 20%;
+}
+
+a
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+nav ul
+{
+    list-style: none;
+    display: flex;
+    flex-direction:row;
+    align-items: flex-start;
+    gap:230px;
+    margin-bottom: 10%;
+}
+
+header hr
+{
+    position: absolute;
+    left:0;
+    border: none;
+    height: 1px;
+    width: 1500px;
+    background-color: #64dfdf;
+}
+
+.contenu
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:20%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 20%;
+}
+
+.contenu p
+{
+    opacity: 60%;
+}
+
+.contenu .lecture
+{
+    color: #64dfdf;
+    opacity: 100%;
+}
+
+.contenu li
+{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.entete h1
+{
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.entete p
+{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+svg
+{
+    stroke: white;
+    margin-top: 5px;
+    width: 30px;
+    height: 30px;
+    opacity: 20%;
+}
+
+.equalizeur
+{
+    width: 30px;
+    height: 30px;
+}
+
+.tree
+{
+    width: 70px;
+    height: 70px;
+}
+
+.playlist
+{
+    display: flex;
+    flex-direction: column;
+    gap:20%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.contenu-lu
+{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    gap:30px;
+}
+
+.playlist ul
+{
+    list-style: none;
+}
