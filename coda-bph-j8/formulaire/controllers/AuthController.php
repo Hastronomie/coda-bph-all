@@ -1,16 +1,18 @@
 <?php
-    class BlogController extends AbstractController
+    class AuthController extends AbstractController
     {
-        public function index() : void
+        public function login() : void
         {
-            require "data/data-articles.php";
-            $this->render("blog", $articles);
-        }
-
-        public function article(int $id) : void
-        {
-            require "data/data-articles.php";
-            $this->render("article", $articles[$id]);
+            if(isset($_POST['email']))
+            {
+                $email = $_POST["email"];
+                var_dump($email);
+            }
+            
+            else
+            {
+                $this->render("login",[]);
+            }
         }
 
         public function notFound() : void

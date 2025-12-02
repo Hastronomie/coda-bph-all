@@ -1,28 +1,17 @@
 <?php
 class Router
 {
-    public function handleRequest(array $get) : void
+    public function handleRequest(array $post) : void
     {
-        $controller= new BlogController();
-        if (isset($get['path']) )
+        $controller= new AuthController();
+        if (isset($_GET['path']) )
         {
-            if (str_contains($get['path'],'article'))
-            {
-                $url = explode("/", $get['path']);
-                $id = (int)$url[1];
-                $controller->article($id);
-            }
-
-            else
-            {
-                $controller->notFound();
-            }
-            
+            $controller->notFound();
         }
-
+    
         else 
         {
-            $controller->index();
+            $controller->login();
         }
     }
 }
