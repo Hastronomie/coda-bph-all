@@ -4,7 +4,7 @@ class Router
     public function handleRequest(array $get) : void
     {
         $controller= new BlogController();
-        if (isset($get['path']) )
+        if (isset($get['path']) && !empty($get['path']))
         {
             if (str_contains($get['path'],'article'))
             {
