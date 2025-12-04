@@ -41,6 +41,7 @@ header ul
 .body
 {
     background: blueviolet;
+    min-height:100vh; 
     /* background: linear-gradient(to bottom, rgba(27, 58, 75, 0.9), rgba(39, 38, 64, 0.9), rgba(77, 25, 77, 0.9)), url("../images/cemetery.jpeg") center center no-repeat; */
 }
 
