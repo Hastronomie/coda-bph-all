@@ -83,6 +83,13 @@ class UserManager extends AbstractManager
         foreach($results as $result)
         {
             $user = new User($result["firstName"], $result["lastName"], $result["email"], $result["password"], DateTime::createFromFormat('Y-m-d H:i:s', $result["created_at"]), $result['id']);
+
+            // $query = $this->db->prepare('SELECT * FROM users WHERE id = :id');
+            // $parameters = [
+            //     'id' => $user->getId(),
+            // ];
+            // $query->execute($parameters);
+            // $resultBooks = $query->fetch(PDO::FETCH_ASSOC);
             $users[]=$user;
         }
 
