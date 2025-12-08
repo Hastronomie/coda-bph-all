@@ -1,0 +1,128 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if match is defined and match %}
+        Détail du match - {{ match.name }}
+    {% else %}
+        Liste des matchs
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    {# ==========================================
+       CONDITION 1 : SI UN MATCH EST SÉLECTIONNÉ (DÉTAIL)
+       ========================================== #}
+    {% if match is defined and match %}
+
+        {% set t1Id = match.team1 %}
+        {% set t2Id = match.team2 %}
+
+        {% set logo1 = teams[t1Id] is defined ? teams[t1Id].logo : '' %}
+        {% set logo2 = teams[t2Id] is defined ? teams[t2Id].logo : '' %}
+
+        {% set winnerId = match.winner %}
+        {% set classTeam1 = (winnerId != 0 and winnerId == t1Id) ? 'winner' : '' %}
+        {% set classTeam2 = (winnerId != 0 and winnerId == t2Id) ? 'winner' : '' %}
+
+        <section class="match-detail-container">
+            
+            <h2 class="match-versus-title">{{ match.name }}</h2>
+            
+            <div class="match-date-large">{{ match.date }}</div>
+
+            <div class="versus-logos">
+                {% if logo1 %}
+                    <img class="big-logo {{ classTeam1 }}" src="{{ logo1 }}" alt="Team 1">
+                {% endif %}
+                
+                {% if logo2 %}
+                    <img class="big-logo {{ classTeam2 }}" src="{{ logo2 }}" alt="Team 2">
+                {% endif %}
+            </div>
+
+            <h3 class="perf-section-title">LES PERFORMANCES</h3>
+
+            <table class="match-stats-table">
+                <thead>
+                    <tr>
+                        <th>PLAYER</th>
+                        <th>TEAM</th>
+                        <th>POINTS</th>
+                        <th>ASSISTS</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% if stats is defined and stats is not empty %}
+                        {% for stat in stats %}
+                            <tr>
+                                <td class="col-pink">{{ stat.nickname }}</td>
+                                <td class="col-yellow">{{ stat.team_name }}</td>
+                                <td class="col-white">{{ stat.points }}</td>
+                                <td class="col-white">{{ stat.assists }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="4" style="color: grey; padding: 20px;">Aucune stat disponible.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+
+        </section>
+
+    {# ==========================================
+       CONDITION 2 : SINON, AFFICHER LA LISTE DES MATCHS
+       ========================================== #}
+    {% else %}
+
+        <section class="matchs">
+            <div class="match_contenue">
+                <h2>LES MATCHS</h2>
+                
+                    {% if matches is defined %}
+                        {% for game in matches %}
+                        
+                        {% set winnerId = game.winner %}
+                        {% set team1Id = game.team1 %}
+                        {% set team2Id = game.team2 %}
+                        
+                        {% set classTeam1 = (winnerId != 0 and winnerId == team1Id) ? 'winner' : '' %}
+                        {% set classTeam2 = (winnerId != 0 and winnerId == team2Id) ? 'winner' : '' %}
+
+                        <div class="match">
+                            <h3>{{ game.name }}</h3>
+                            <p>{{ game.date }}</p>
+                            
+                            <div class="match_img">
+
+                                {% if teams[team1Id] is defined %}
+                                    <img src="{{ teams[team1Id].logo }}" 
+                                         alt="Team 1" 
+                                         class="{{ classTeam1 }}">
+                                {% endif %}
+                            
+                                <span class="vs">VS</span>
+
+                                {% if teams[team2Id] is defined %}
+                                    <img src="{{ teams[team2Id].logo }}" 
+                                         alt="Team 2" 
+                                         class="{{ classTeam2 }}">
+                                {% endif %}
+                            </div>
+                            
+                            <a href="{{ constant('BASE_URL') }}/index.php?route=match&id={{ game.id }}" class="button_detail">
+                                <button type="button">Détails du match</button>
+                            </a>
+                            
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </section>
+
+    {% endif %}
+
+{% endblock %}
